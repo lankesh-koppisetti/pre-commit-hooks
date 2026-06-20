@@ -1,6 +1,13 @@
 # 1. Define the Provider
 provider "aws" {
   region = "us-east-1"
+skip_credentials_validation = true
+  skip_requesting_account_id  = true
+  skip_metadata_api_check     = true
+
+  endpoints {
+    s3 = "http://localhost:4566"
+  }
 }
 
 # 2. Create a Random ID for unique bucket naming
